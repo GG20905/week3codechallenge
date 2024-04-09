@@ -1,7 +1,7 @@
 
 
 function moviesArray(){
-    fetch(" http://localhost:3000/films")
+    fetch(" https://week3challenge2.onrender.com/films")
     .then(res=>res.json())
     .then(moviesArray=>{
         displayMovieTitles(moviesArray)
@@ -74,7 +74,7 @@ function handleTicket(span2, data) {
       span2.textContent = count;
     }
     console.log(data.id)
-    // fetch(` http://localhost:3000/films/${data.id}`,{
+    // fetch(` https://week3challenge2.onrender.com/films/${data.id}`,{
     //     method:"PATCH",
     //     headers:{
     //         "Content-Type": "application/json"  
@@ -89,7 +89,7 @@ function handleTicket(span2, data) {
   }
 
   function handleDelete(movie){
-    fetch(` http://localhost:3000/films/${movie.id}`,{
+    fetch(`https://week3challenge2.onrender.com/films/${movie.id}`,{
         method:"DELETE"
     })
     .then(res=>res.json)
