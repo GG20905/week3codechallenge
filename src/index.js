@@ -1,7 +1,7 @@
 
-
+//function to capture the movie data
 function moviesArray(){
-    fetch(" http://localhost:3000/films")
+    fetch("https://week3challenge2.onrender.com/films")
     .then(res=>res.json())
     .then(moviesArray=>{
         displayMovieTitles(moviesArray)
@@ -9,6 +9,7 @@ function moviesArray(){
     })
 }
 moviesArray()
+//function to display the movie titles in the list
 function displayMovieTitles(moviesarray){
     let ul=document.getElementById("list")
     ul.innerHTML=" "  
@@ -26,7 +27,7 @@ function displayMovieTitles(moviesarray){
     })
     
 }
-
+//function to display movies
 function dispalyMovieOne(data){  
     let h1=document.getElementById("title")
     h1.textContent=data.title
@@ -45,7 +46,7 @@ function dispalyMovieOne(data){
     btn.addEventListener("click", () => handleTicket(span2,data));
 
 }
-
+//function to allow to single click individual movies
 function handleClick(data){
     // console.log(movie)
     let h1=document.getElementById("title")
@@ -66,6 +67,7 @@ function handleClick(data){
 
 }
 
+//function to allow for buying of tickets
 function handleTicket(span2, data) {
     // console.log(data.tickets_sold)
     let count = parseInt(span2.textContent);
@@ -74,7 +76,7 @@ function handleTicket(span2, data) {
       span2.textContent = count;
     }
     console.log(data.id)
-    // fetch(` http://localhost:3000/films/${data.id}`,{
+    // fetch(`https://week3challenge2.onrender.com/films`,{
     //     method:"PATCH",
     //     headers:{
     //         "Content-Type": "application/json"  
@@ -87,9 +89,9 @@ function handleTicket(span2, data) {
     // .then(res=>res.json())
     // .then(updated=>console.log(updated))
   }
-
+//function to delete films
   function handleDelete(movie){
-    fetch(` http://localhost:3000/films/${movie.id}`,{
+    fetch(` https://week3challenge2.onrender.com/films/${movie.id}`,{
         method:"DELETE"
     })
     .then(res=>res.json)
